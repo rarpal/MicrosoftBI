@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataProfile" targetNamespace="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/" 
+			version="1.1"
+			elementFormDefault="qualified" 
+			xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/" 
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<xs:annotation>
+		<xs:appinfo>Data Profile XML Schema</xs:appinfo>
+  <xs:documentation>XML Schema for Data Profile Elements</xs:documentation> 
+  <xs:documentation>The following schema for Microsoft SQL Server 2008 and later versions describes the output file created by the Data Profiling Task in Integration Services. Microsoft does not make any representation or warranty regarding the schema or any product or item developed based on the schema. The schema is provided to you on an AS IS basis. Microsoft disclaims all express, implied and statutory warranties, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and freedom from infringement. Without limiting the generality of the foregoing, Microsoft does not make any warranty of any kind that any item developed based on the schema, or any portion of the schema, will not infringe any copyright, patent, trade secret, or other intellectual property right of any person or entity in any country. It is your responsibility to seek licenses for such intellectual property rights where appropriate. MICROSOFT SHALL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE USE OF THE SCHEMA, INCLUDING WITHOUT LIMITATION, ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL (INCLUDING ANY LOST PROFITS), PUNITIVE OR SPECIAL DAMAGES, WHETHER OR NOT MICROSOFT HAS BEEN ADVISED OF SUCH DAMAGES. (c) Microsoft Corporation. All rights reserved.</xs:documentation> 
+	</xs:annotation>
+	<!-- 
+	*****************************************************************************************
+	*  
+	* This is the Root of the schema. A data profile XML file is composed of three parts.
+	* A Data Source part contains the connection information for all the data source used by 
+	* the Profile part.
+	* An input part contains what to profile and how to profile.
+	* An output part contains the data profiles.
+	*****************************************************************************************
+	-->
+	<xs:element name="DataProfile">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- 
+				***********************************************************************************************
+				* Root of data sources. It is a sequence of data sources referred by the profiles. The definition
+				* of data sources is from ProfileCommonSchema.xsd.
+				***********************************************************************************************
+				-->
+				<xs:element name="ProfileVersion" type="xs:string" minOccurs="0" maxOccurs="1" />
+				<xs:element name="DataSources" type="DataSourcesType" />
+				<!-- Input -->
+				<xs:element name="DataProfileInput" type="DataProfileInputType" minOccurs="0" maxOccurs="1" />
+				<!-- Output -->
+				<xs:element name="DataProfileOutput" type="DataProfileOutputType" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--
+	*****************************************************************************************
+	* This is the Root of the schema for DataProfileInput. It includes:
+	* A ProfileMode indicates whether it runs in fast mode or exact mode.
+	* A DataSourceID pointing to a SQL Server database used as the working temporary database.
+	* A Profile Requests part, contains what to profile using what parameters.
+	*****************************************************************************************
+	-->
+	<xs:complexType name="DataProfileInputType">
+		<xs:sequence>
+			<xs:element name="ProfileMode" type="ProfileModeType" minOccurs="1" maxOccurs="1" />
+			<xs:element name ="Timeout" type ="xs:int" minOccurs ="0" maxOccurs ="1" default ="0" />
+			<xs:element name="Requests" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="ProfileRequest" minOccurs="0" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+	*****************************************************************************************
+	* This is the Root of the schema for DataProfileOutput. It includes
+	* the data profiles computed per the requests in the input
+	*****************************************************************************************
+	-->
+	<xs:complexType name="DataProfileOutputType">
+		<xs:sequence>
+			<!-- 
+				***********************************************************************************************
+				* Root of profiles part. It is a sequence of profiles. Each profile derives from an abstract ProfileType.
+				***********************************************************************************************
+				-->
+			<xs:element name="Profiles" type="ProfilesType" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- A placeholder for the ProfileRequest -->
+	<xs:element name="ProfileRequest" type="ProfileRequestType" abstract="true" />
+
+	<!-- ProfileMode -->
+	<xs:simpleType name="ProfileModeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Fast" />
+			<xs:enumeration value="Exact" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- Root of top request type.  -->
+	<xs:complexType name="ProfileRequestType" abstract="true">
+		<xs:attribute name="ID" type="xs:string" use="required" />
+	</xs:complexType>
+	<!-- Table name may includes an optional database part and an optional schema part. -->
+	<xs:complexType name="TableQNameType">
+		<xs:attribute name ="Database" type="xs:string" use="optional" />
+		<xs:attribute name="Schema" type="xs:string" use="optional" />
+		<xs:attribute name="Table" type="xs:string" use="optional" />
+	</xs:complexType>
+	<!-- Column name includes a boolean flag indicating whether it is a wildcard and its name and an compare option for string column-->
+	<xs:complexType name="ColumnParameterType">
+		<xs:attribute name="IsWildCard" type="xs:boolean" use ="required" />
+		<xs:attribute name="ColumnName" type="xs:string" use="optional" />
+		<xs:attribute name="StringCompareOptions" type="xs:int" use="optional" />
+	</xs:complexType>
+	<!-- Column name collection -->
+	<xs:complexType name="ColumnParameterCollectionType">
+		<xs:sequence>
+			<xs:element name="Column" type="ColumnParameterType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Abstract root for single table profile request. -->
+	<xs:complexType name="TableProfileRequestType" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="ProfileRequestType">
+				<xs:sequence>
+					<xs:element name="DataSourceID" type="xs:string" minOccurs = "0"/>
+					<xs:element name="Table" type="TableQNameType" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Abstract root for single column profile request -->
+	<xs:complexType name="ColumnProfileRequestType" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="TableProfileRequestType">
+				<xs:sequence>
+					<xs:element name="Column" type="ColumnParameterType" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Request to compute the value statistics min/max/avg/stdev for a column -->
+	<xs:element name="ColumnStatisticsProfileRequest" type="ColumnStatisticsProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="ColumnStatisticsProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileRequestType">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Request to compute the length distribution for a column -->
+	<xs:element name="ColumnLengthDistributionProfileRequest" type="ColumnLengthDistributionProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="ColumnLengthDistributionProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileRequestType">
+				<xs:sequence>
+					<xs:element name="IgnoreLeadingSpace" type="xs:boolean" minOccurs="0" maxOccurs="1" default="false" />
+					<xs:element name="IgnoreTrailingSpace" type="xs:boolean" minOccurs="0" maxOccurs="1" default ="true" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="ValueDistributionOptions">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AllValues" />
+			<xs:enumeration value="FrequentValues" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Request to compute the value distibution for a column -->
+	<xs:element name="ColumnValueDistributionProfileRequest" type="ColumnValueDistributionProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="ColumnValueDistributionProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileRequestType">
+				<xs:sequence>
+					<xs:element name ="Option" type ="ValueDistributionOptions" minOccurs = "1" />
+					<xs:element name="FrequentValueThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Request to compute the null ratio of a column -->
+	<xs:element name="ColumnNullRatioProfileRequest" type="ColumnNullRatioProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="ColumnNullRatioProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileRequestType">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	
+	<xs:simpleType name="StrengthThresholdSettingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None" />
+			<xs:enumeration value="Specified" />
+			<xs:enumeration value="Exact" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Request to compute the key strength of a collection of columns -->
+	<xs:element name="CandidateKeyProfileRequest" type="CandidateKeyProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="CandidateKeyProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="TableProfileRequestType">
+				<xs:sequence>
+					<xs:element name="KeyColumns" type="ColumnParameterCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="ThresholdSetting" type="StrengthThresholdSettingType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="KeyStrengthThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+					<xs:element name="VerifyOutputInFastMode" type="xs:boolean" default ="true"  minOccurs="0" maxOccurs="1" />
+					<xs:element name ="MaxNumberOfViolations" type ="xs:int" minOccurs ="0" maxOccurs ="1" default ="-1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Request to compute the FD strength about how a collection of columns functionally determines a column -->
+	<xs:element name="FunctionalDependencyProfileRequest" type="FunctionalDependencyProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="FunctionalDependencyProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="TableProfileRequestType">
+				<xs:sequence>
+					<xs:element name="DeterminantColumns" type="ColumnParameterCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="DependentColumn" type="ColumnParameterType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="ThresholdSetting" type="StrengthThresholdSettingType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="FDStrengthThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+					<xs:element name="VerifyOutputInFastMode" type="xs:boolean" default ="true" minOccurs="0" maxOccurs="1" />
+					<xs:element name ="MaxNumberOfViolations" default ="-1"  type ="xs:int" minOccurs ="0" maxOccurs ="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<!-- Request to compute the inclusion strength about how a collection of columns in one table is contained in another collection of collection. -->
+	<xs:element name="InclusionProfileRequest" type="InclusionProfileRequestType" substitutionGroup="ProfileRequest" />
+	<xs:complexType name="InclusionProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ProfileRequestType">
+				<xs:sequence>
+					<xs:element name="SubsetDataSourceID" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="SubsetTable" type="TableQNameType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SubsetColumns" type="ColumnParameterCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetDataSourceID" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="SupersetTable" type="TableQNameType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetColumns" type="ColumnParameterCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="InclusionThresholdSetting" type="StrengthThresholdSettingType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="InclusionStrengthThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+					<xs:element name="SupersetColumnsKeyThresholdSetting" type="StrengthThresholdSettingType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetColumnsKeyThreshold" type="xs:double" minOccurs="0" maxOccurs="1" />
+					<xs:element name="VerifyOutputInFastMode" type="xs:boolean" default ="true" minOccurs="0" maxOccurs="1" />
+					<xs:element name ="MaxNumberOfViolations" default ="-1"  type ="xs:int" minOccurs ="0" maxOccurs ="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+	*****************************************************************************************
+	* Information about a table. 
+	*****************************************************************************************
+	-->
+	<xs:complexType name="TableInfoType">
+		<xs:attribute name="DataSource" type="xs:string" use="optional" />
+		<xs:attribute name="Database" type="xs:string" use="optional" />		
+		<xs:attribute name="Schema" type="xs:string" use="optional" />
+		<xs:attribute name="Table" type="xs:string" use="required" />
+		<xs:attribute name="RowCount" type="xs:long" use="required" />
+	</xs:complexType>
+	<!-- 
+	*****************************************************************************************
+	* Information about a column. 
+	*****************************************************************************************
+	-->
+	<xs:complexType name="ColumnInfoType">
+		<xs:attribute name="Name" type="xs:string" use="required" />
+		<xs:attribute name="MaxLength" type="xs:int" use="required" />
+		<xs:attribute name="Precision" default="0" type="xs:unsignedByte" />
+		<xs:attribute name="Scale" default="0" type="xs:unsignedByte" />
+		<xs:attribute name="SqlDbType" type="SqlDbType" use="required" />
+		<xs:attribute name ="LCID" type ="xs:int" default ="-1" />
+		<xs:attribute name="CodePage" default="0" type="xs:int" />
+		<xs:attribute name="StringCompareOptions" default="0" type="xs:int" />
+		<xs:attribute name="IsNullable" default="true" type ="xs:boolean" />
+	</xs:complexType>
+	<!-- Profile element is just a placeholder, real data profile should substitube it. -->
+	<xs:element name="Profile" abstract="true" type="ProfileType" />
+	<xs:complexType name="ProfilesType">
+		<xs:sequence>
+			<xs:element ref="Profile" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Root of profile type hierarchy. -->
+	<xs:complexType name="ProfileType" abstract="true">
+		<!-- whether a profile is exact -->
+		<xs:attribute name="IsExact" type="xs:boolean" use="required" />
+		<!-- an attribute to correlate the profile with the profile request -->
+		<xs:attribute name="ProfileRequestID" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<!-- types common to multi-column profiles-->
+	<xs:complexType name="ColumnInfoCollectionType">
+		<xs:sequence>
+			<xs:element name="Column" type="ColumnInfoType" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Nullable column values in text presentation -->
+	<xs:complexType name ="ColumnValueType">
+		<xs:simpleContent>
+			<xs:extension base ="xs:string">
+				<xs:attribute name ="IsDBNull" type ="xs:boolean" default="false" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<!-- A list of column values. -->
+	<xs:complexType name="ColumnValuesType">
+		<xs:sequence>
+			<xs:element name="ColumnValue" type ="ColumnValueType" minOccurs ="1"  maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- An item in a Multi-column value distribution -->
+	<xs:complexType name="MultiColumnValueDistributionItemType">
+		<xs:sequence>
+			<xs:element name="ColumnValues" type="ColumnValuesType" />
+			<xs:element name="Count" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Multi-column value distribution -->
+	<xs:complexType name="MultiColumnValueDistributionType">
+		<xs:sequence>
+			<xs:element name="MultiColumnValueDistributionItem" type="MultiColumnValueDistributionItemType" minOccurs ="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Multi-column value distribution -->
+	<xs:complexType name="FDViolationItemCollectionType">
+		<xs:sequence>
+			<xs:element name="FDViolationItem" type="FDViolationItemType" minOccurs ="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="FDViolationItemType">
+		<xs:sequence>
+			<xs:element name="DeterminantValues" type="ColumnValuesType" />
+			<xs:element name="DependentValue" type ="ColumnValueType" />
+			<xs:element name="SupportCount" type="xs:int" />
+			<xs:element name="ViolationCount" type="xs:int" />			
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Abstract type for all single table profile. -->
+	<xs:complexType name="TableProfileType" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="ProfileType">
+				<xs:sequence>
+					<xs:element name="DataSourceID" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="Table" type="TableInfoType" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<!-- Abstract type for all single column profile. -->
+	<xs:complexType name="ColumnProfileType" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="TableProfileType">
+				<xs:sequence>
+					<xs:element name="Column" type="ColumnInfoType" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+   ***********************************************************************************************
+   *  
+   * ColumnStatisticsProfile provides min/max/avg/stddev for a numeric column
+   *
+   ***********************************************************************************************
+   -->
+	<xs:element name="ColumnStatisticsProfile" type="ColumnStatisticsProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="ColumnStatisticsProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileType">
+				<xs:sequence>
+					<xs:element name="MinValue" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="MaxValue" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="Mean" type="xs:string" minOccurs="0" maxOccurs="1" />
+					<xs:element name="StdDev" type="xs:string" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * LengthDistributionProfile provides min/max length and the length distribution for a string column
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="ColumnLengthDistributionProfile" type="ColumnLengthDistributionProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="ColumnLengthDistributionProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileType">
+				<xs:sequence>
+					<xs:element name="IgnoreLeadingSpace" type="xs:boolean" minOccurs="0" maxOccurs="1" default="false" />
+					<xs:element name="IgnoreTrailingSpace" type="xs:boolean" minOccurs="0" maxOccurs="1" default ="true" />
+					<xs:element name="MinLength" type="xs:int" minOccurs="1" maxOccurs="1" />
+					<xs:element name="MaxLength" type="xs:int" minOccurs="1" maxOccurs="1" />
+					<xs:element name="LengthDistribution" type="LengthDistributionType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LengthDistributionType">
+		<xs:sequence>
+			<xs:element name="LengthDistributionItem" type="LengthDistributionItemType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LengthDistributionItemType">
+		<xs:sequence>
+			<xs:element name="Length" type="xs:int" />
+			<xs:element name="Count" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * ValueDistributionProfile provides the value distribution for a string column
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="ColumnValueDistributionProfile" type="ColumnValueDistributionProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="ColumnValueDistributionProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileType">
+				<xs:sequence>
+					<xs:element name="NumberOfDistinctValues" type="xs:long" minOccurs="0" maxOccurs="1" />
+					<xs:element name="ValueDistribution" type="ValueDistributionType" minOccurs="0" maxOccurs="1">
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueDistributionType">
+		<xs:sequence>
+			<xs:element name="ValueDistributionItem" type="ValueDistributionItemType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ValueDistributionItemType">
+		<xs:sequence>
+			<xs:element name="Value" type="ColumnValueType" />
+			<xs:element name="Count" type="xs:long" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * NullRatioProfile provides the count of nulls for a column
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="ColumnNullRatioProfile" type="ColumnNullRatioProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="ColumnNullRatioProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileType">
+				<xs:sequence>
+					<xs:element name="NullCount" type="xs:long" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * CandidateKeyProfile shows how good a set of columns can serve as a key, as well as the violations
+   * to the key constraints
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="CandidateKeyProfile" type="CandidateKeyProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="CandidateKeyProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="TableProfileType">
+				<xs:sequence>
+					<xs:element name="KeyColumns" type="ColumnInfoCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="IsExactKey" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="KeyStrength" type="FloatBetweenZeroAndOneType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="KeyViolations" type="MultiColumnValueDistributionType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * FunctionalDependencyProfile shows how strong a FD: LHS->RHS holds as well as the violations
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="FunctionalDependencyProfile" type="FunctionalDependencyProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="FunctionalDependencyProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="TableProfileType">
+				<xs:sequence>
+					<xs:element name="DeterminantColumns" type="ColumnInfoCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="DependentColumn" type="ColumnInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="IsExactFD" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="FDStrength" type="FloatBetweenZeroAndOneType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="FDViolations" type="FDViolationItemCollectionType" minOccurs="0" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- 
+   ***************************************************************************************************
+   *  
+   * InclusionProfile presents how many rows in the source table whose projection on the source columns
+   * are contained in the projection of destination table on the destination columns. If the destination
+   * columns are the key of the destination table, the inclusion strength is the same as foreign key
+   * strength.
+   *
+   ***************************************************************************************************
+   -->
+	<xs:element name="InclusionProfile" type="InclusionProfileType" substitutionGroup="Profile" />
+	<xs:complexType name="InclusionProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ProfileType">
+				<xs:sequence>
+					<xs:element name="SubsetDataSourceID" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SubsetTable" type="TableInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SubsetColumns" type="ColumnInfoCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetDataSourceID" type="xs:string" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetTable" type="TableInfoType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="SupersetColumns" type="ColumnInfoCollectionType" minOccurs="1" maxOccurs="1" />
+					<xs:element name="IsExactInclusion" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					<xs:element name="InclusionStrength" type="FloatBetweenZeroAndOneType" minOccurs="0" maxOccurs="1" />
+					<xs:element name="InclusionViolations" type="MultiColumnValueDistributionType" minOccurs="0" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DataSourcesType">
+		<xs:sequence>
+			<xs:element ref="DataSource" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DataSource" type="DataSourceType" abstract="true" />
+	<xs:complexType name="DataSourceType">
+		<xs:attribute name="ID" type="xs:string" use="required" />
+		<xs:attribute name="Name" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:element name="SqlDataSource" type="SqlDataSourceType" final="#all" substitutionGroup="DataSource" />
+	<xs:complexType name="SqlDataSourceType">
+		<xs:complexContent>
+			<xs:extension base="DataSourceType">
+				<xs:sequence>
+					<xs:element name="ConnectionString" type="xs:string" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DtsDataSource" type="DtsDataSourceType" final="#all" substitutionGroup="DataSource" />
+	<xs:complexType name="DtsDataSourceType">
+		<xs:complexContent>
+			<xs:extension base="DataSourceType">
+				<xs:sequence>
+					<xs:element name="DtsConnectionManagerID" type="xs:string" minOccurs="1" maxOccurs="1" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- lots of profiles are percentages, which can be modeled as a float between 0 and 1, inclusive.-->
+	<xs:simpleType name="FloatBetweenZeroAndOneType">
+		<xs:restriction base="xs:float">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Enumeration of SQL Data Type that can be profiled. TEXT and IMAGE and XML types are not supported currently. -->
+	<xs:simpleType name="SqlDbType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BigInt" />
+			<xs:enumeration value="Binary" />
+			<xs:enumeration value="Bit" />
+			<xs:enumeration value="Char" />
+			<xs:enumeration value="Date" />
+			<xs:enumeration value="DateTime" />
+			<xs:enumeration value="DateTime2" />
+			<xs:enumeration value="DateTimeOffset" />
+			<xs:enumeration value="Decimal" />
+			<xs:enumeration value="Float" />
+			<xs:enumeration value="Image" />
+			<xs:enumeration value="Int" />
+			<xs:enumeration value="Money" />
+			<xs:enumeration value="NChar" />
+			<xs:enumeration value="NText" />
+			<xs:enumeration value="NVarChar" />
+			<xs:enumeration value="Real" />
+			<xs:enumeration value="SmallInt" />
+			<xs:enumeration value="SmallMoney" />
+			<xs:enumeration value="SmallDateTime" />
+			<xs:enumeration value="Text" />
+			<xs:enumeration value="Time" />
+			<xs:enumeration value="Timestamp" />
+			<xs:enumeration value="TinyInt" />
+			<xs:enumeration value="Udt" />
+			<xs:enumeration value="UniqueIdentifier" />
+			<xs:enumeration value="VarChar" />
+			<xs:enumeration value="VarBinary" />
+			<xs:enumeration value="Variant" />
+			<xs:enumeration value="Xml" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="ColumnPatternProfileRequest" type="ColumnPatternProfileRequestType" substitutionGroup="ProfileRequest" />
+
+	<xs:complexType name="ColumnPatternProfileRequestType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileRequestType">
+				<xs:sequence>
+					<xs:element name="MaxNumberOfPatterns" type="xs:int" minOccurs="0"/>
+					<xs:element name="PercentageDataCoverageDesired" type="xs:int" minOccurs="0"/>
+					<xs:element name="CaseSensitive" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="Delimiters" type="xs:string" minOccurs="0"/>
+					<xs:element name="Symbols" type="xs:string" minOccurs="0"/>
+					<xs:element name="TagDataSourceId" type="xs:string" minOccurs="0"/>
+					<xs:element name="TagTableName" type="TableQNameType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+
+	<xs:element name="ColumnPatternProfile" type="ColumnPatternProfileType" substitutionGroup="Profile" />
+
+	<xs:complexType name ="PatternDistributionItemType">
+		<xs:sequence>
+			<xs:element name ="RegexText" type ="xs:string" />
+			<xs:element name ="Frequency" type ="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ColumnPatternProfileType" final="#all">
+		<xs:complexContent>
+			<xs:extension base="ColumnProfileType">
+				<xs:sequence>
+					<xs:element name ="TagTable" type="TableInfoType" minOccurs ="0" maxOccurs ="1" />
+					<xs:element name ="TopRegexPatterns" >
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name ="PatternDistributionItem" type ="PatternDistributionItemType" maxOccurs ="unbounded" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

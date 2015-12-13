@@ -1,0 +1,2596 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/12/2015 2:33:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PALBOOK3"
+  DTS:CreatorName="PALBOOK3\Ravi"
+  DTS:DTSID="{39EE0ADE-053A-4034-B804-E5EA58F739A3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{50F10139-2C96-4E3A-80E6-C2E8F67BAEA7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[con_genchan]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{630E66D1-29F6-4746-98EC-199FCC5D17D0}"
+      DTS:ObjectName="con_genchan">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\join2_genchan_all.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{927B81B4-1BCE-49BF-8AA9-F70A0A5CC0ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{39948218-EB34-4634-A85F-D34B45BD167E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[con_gennum]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{B130825E-B031-45C3-B442-077FEA20F32E}"
+      DTS:ObjectName="con_gennum">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\join2_gennum_all.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{0A63EAE2-492D-490B-97C1-FCC1790346A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{E3A49347-74EB-4550-9E17-73B8C9F8EBFD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DataProfile.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{246A0B8F-252A-42A5-B424-7A12FD98A39F}"
+      DTS:ObjectName="DataProfile.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\DataProfile.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7AA99F2E-0039-47A2-B5BB-39EF3DEB5AA4}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\Coursera\join2_gennumA_all.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{D0B3662E-93E8-4C7C-89DC-43F60438FA72}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{76D61F76-BD90-4953-88A5-1226F63CD960}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[palbook3.AdventureWorks2012]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{088B69ED-4B63-489E-B33F-97B0C9EA83A7}"
+      DTS:ObjectName="palbook3.AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=palbook3;Initial Catalog=AdventureWorks2012;Integrated Security=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[palbook3.MDDETL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{45F4860E-EBEF-4DC6-818A-DC575A2A4D84}"
+      DTS:ObjectName="palbook3.MDDETL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=palbook3;Initial Catalog=MDDETL;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[XMLCityState.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{51B240EC-7840-43F7-91ED-D0D687A1FCBF}"
+      DTS:ObjectName="XMLCityState.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\XMLCityState.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E6E1A89E-4836-4FEA-9B56-7C4885452565}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="City">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7FEB864D-2EC3-47C9-BDE8-DB0D160B1069}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{40F38430-3EC1-4234-BB77-51C504A107F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Column 1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 1"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]"
+                      name="Copy of Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]"
+                      name="Column 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 1]"
+                      name="Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 0" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[TVSHOWS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">234234</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Column 0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 0"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Column 1]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Column 1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERS]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERS]"
+                      dataType="i4"
+                      name="VIEWERS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SQL Server Destination"
+              componentClassID="Microsoft.SQLServerDestination"
+              contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+              description="SQL Server Destination"
+              name="SQL Server Destination"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the database object to copy data into."
+                  expressionType="Notify"
+                  name="BulkInsertTableName">[dbo].[TVSHOWS]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
+                  name="BulkInsertCheckConstraints">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertFirstRow">-1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
+                  name="BulkInsertFireTriggers">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
+                  name="BulkInsertKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="BulkInsertKeepNulls">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertLastRow">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
+                  name="BulkInsertMaxErrors">-1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
+                  expressionType="Notify"
+                  name="BulkInsertOrder"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
+                  name="BulkInsertTablock">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
+                  expressionType="Notify"
+                  name="Timeout">30</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
+                  name="MaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SQL Server Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input]"
+                  hasSideEffects="true"
+                  name="SQL Server Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Column 0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 0"
+                      externalMetadataColumnId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Column 0]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Copy of Column 1]"
+                      cachedDataType="i4"
+                      cachedName="Copy of Column 1"
+                      externalMetadataColumnId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VIEWERS]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[TVSHOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[VIEWERS]"
+                      dataType="i4"
+                      name="VIEWERS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
+              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 1]"
+              endId="Package\Data Flow Task\SQL Server Destination.Inputs[SQL Server Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 2]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 2"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow TV SHOWS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{A108ED5F-86F7-407B-BA45-00AE90DC2F89}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow TV SHOWS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow TV SHOWS\genchan"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="genchan"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV SHOWS\genchan.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[con_genchan]"
+                  connectionManagerRefId="Package.ConnectionManagers[con_genchan]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      length="50"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 0]"
+                      name="Column 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      length="3"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 1]"
+                      name="Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 0" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV SHOWS\GENCHAN"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="GENCHAN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GENCHAN]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV SHOWS\GENCHAN.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].Columns[Column 0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 0"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 0]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].Columns[Column 1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Column 1"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].ExternalColumns[CHANNEL]"
+                      lineageId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output].Columns[Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input].ExternalColumns[CHANNEL]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CHANNEL" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV SHOWS\GENCHAN.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\GENCHAN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\GENCHAN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\GENCHAN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV SHOWS\gennum"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="gennum"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV SHOWS\gennum.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[con_gennum]"
+                  connectionManagerRefId="Package.ConnectionManagers[con_gennum]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      length="50"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 0]"
+                      name="Column 0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 1]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 1]"
+                      name="Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 0" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Column 1" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV SHOWS\GENNUM"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="GENNUM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GENNUM]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV SHOWS\GENNUM.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].Columns[Column 0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Column 0"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 0]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].Columns[Column 1]"
+                      cachedDataType="i4"
+                      cachedName="Column 1"
+                      externalMetadataColumnId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERCOUNT]"
+                      lineageId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output].Columns[Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERCOUNT]"
+                      dataType="i4"
+                      name="VIEWERCOUNT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV SHOWS\GENNUM.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\GENNUM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV SHOWS\GENNUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV SHOWS\GENNUM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow TV SHOWS.Paths[Flat File Source Output]"
+              endId="Package\Data Flow TV SHOWS\GENCHAN.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow TV SHOWS\genchan.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Data Flow TV SHOWS.Paths[Flat File Source Output1]"
+              endId="Package\Data Flow TV SHOWS\GENNUM.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Data Flow TV SHOWS\gennum.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow TV Shows"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{54E0FD94-4549-410F-8A8E-47FBFB691346}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow TV Shows"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow TV Shows\CHANNELS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CHANNELS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[CHANNELS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV Shows\CHANNELS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].Columns[CHANNEL]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CHANNEL"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNEL]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNEL]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].Columns[CHANNELS_Id]"
+                      cachedDataType="ui8"
+                      cachedName="CHANNELS_Id"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNELS_Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNEL]"
+                      dataType="wstr"
+                      length="255"
+                      name="CHANNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNELS_Id]"
+                      dataType="numeric"
+                      name="CHANNELS_Id"
+                      precision="20" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV Shows\CHANNELS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\CHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\CHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\CHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV Shows\SHOWCHANNELS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SHOWCHANNELS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SHOWCHANNELS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV Shows\SHOWCHANNELS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].Columns[CHANNELS_Id]"
+                      cachedDataType="ui8"
+                      cachedName="CHANNELS_Id"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[CHANNELS_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].Columns[SHOW_Id]"
+                      cachedDataType="ui8"
+                      cachedName="SHOW_Id"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[SHOW_Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[CHANNELS_Id]"
+                      dataType="numeric"
+                      name="CHANNELS_Id"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input].ExternalColumns[SHOW_Id]"
+                      dataType="numeric"
+                      name="SHOW_Id"
+                      precision="20" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV Shows\SHOWCHANNELS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\SHOWCHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\SHOWCHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\SHOWCHANNELS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV Shows\SHOWS"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SHOWS"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SHOWS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow TV Shows\SHOWS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[palbook3.MDDETL]"
+                  connectionManagerRefId="Package.ConnectionManagers[palbook3.MDDETL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].Columns[SHOW_Id]"
+                      cachedDataType="ui8"
+                      cachedName="SHOW_Id"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[SHOW_Id]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].Columns[TVSHOW]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TVSHOW"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[TVSHOW]" />
+                    <inputColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].Columns[VIEWERCOUNT]"
+                      cachedDataType="ui2"
+                      cachedName="VIEWERCOUNT"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERCOUNT]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[VIEWERCOUNT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[SHOW_Id]"
+                      dataType="numeric"
+                      name="SHOW_Id"
+                      precision="20" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[TVSHOW]"
+                      dataType="wstr"
+                      length="255"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input].ExternalColumns[VIEWERCOUNT]"
+                      dataType="i4"
+                      name="VIEWERCOUNT" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV Shows\SHOWS.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\SHOWS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\SHOWS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\SHOWS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow TV Shows\XML Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="XML Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\TVSHOWS.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">C:\Users\Ravi\PalProjects\RandD\MicrosoftBI\Solution1\TVSHOWS.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL]"
+                  name="CHANNEL">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">CHANNEL</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNEL]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].ExternalColumns[CHANNEL]"
+                      length="255"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNEL]"
+                      name="CHANNEL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNELS_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].Columns[CHANNELS_Id]"
+                      name="CHANNELS_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].ExternalColumns[CHANNEL]"
+                      dataType="wstr"
+                      length="255"
+                      name="CHANNEL">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL].ExternalColumns[CHANNELS_Id]"
+                      dataType="ui8"
+                      name="CHANNELS_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output]"
+                  isErrorOut="true"
+                  name="CHANNEL Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">CHANNEL</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[CHANNEL]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].ExternalColumns[CHANNEL]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[CHANNEL]"
+                      name="CHANNEL" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[CHANNELS_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[CHANNELS_Id]"
+                      name="CHANNELS_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].ExternalColumns[CHANNEL]"
+                      dataType="nText"
+                      name="CHANNEL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL Error Output].ExternalColumns[CHANNELS_Id]"
+                      dataType="nText"
+                      name="CHANNELS_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS]"
+                  name="CHANNELS">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">CHANNELS</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[CHANNELS_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[CHANNELS_Id]"
+                      name="CHANNELS_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[SHOW_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].Columns[SHOW_Id]"
+                      name="SHOW_Id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].ExternalColumns[CHANNELS_Id]"
+                      dataType="ui8"
+                      name="CHANNELS_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS].ExternalColumns[SHOW_Id]"
+                      dataType="ui8"
+                      name="SHOW_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output]"
+                  isErrorOut="true"
+                  name="CHANNELS Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">CHANNELS</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[CHANNELS_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].ExternalColumns[CHANNELS_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[CHANNELS_Id]"
+                      name="CHANNELS_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[SHOW_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[SHOW_Id]"
+                      name="SHOW_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].ExternalColumns[CHANNELS_Id]"
+                      dataType="nText"
+                      name="CHANNELS_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS Error Output].ExternalColumns[SHOW_Id]"
+                      dataType="nText"
+                      name="SHOW_Id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW]"
+                  name="SHOW">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">SHOW</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[SHOW_Id]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[SHOW_Id]"
+                      name="SHOW_Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[TVSHOW]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[TVSHOW]"
+                      length="255"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[TVSHOW]"
+                      name="TVSHOW"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[VIEWERCOUNT]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[VIEWERCOUNT]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].Columns[VIEWERCOUNT]"
+                      name="VIEWERCOUNT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[SHOW_Id]"
+                      dataType="ui8"
+                      name="SHOW_Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt64</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[TVSHOW]"
+                      dataType="wstr"
+                      length="255"
+                      name="TVSHOW">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW].ExternalColumns[VIEWERCOUNT]"
+                      dataType="ui2"
+                      name="VIEWERCOUNT">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output]"
+                  isErrorOut="true"
+                  name="SHOW Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">SHOW</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[SHOW_Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[SHOW_Id]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[SHOW_Id]"
+                      name="SHOW_Id" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[TVSHOW]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[TVSHOW]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[TVSHOW]"
+                      name="TVSHOW" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[VIEWERCOUNT]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[VIEWERCOUNT]"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[VIEWERCOUNT]"
+                      name="VIEWERCOUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[SHOW_Id]"
+                      dataType="nText"
+                      name="SHOW_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[TVSHOW]"
+                      dataType="nText"
+                      name="TVSHOW" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW Error Output].ExternalColumns[VIEWERCOUNT]"
+                      dataType="nText"
+                      name="VIEWERCOUNT" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow TV Shows.Paths[CHANNEL]"
+              endId="Package\Data Flow TV Shows\CHANNELS.Inputs[OLE DB Destination Input]"
+              name="CHANNEL"
+              startId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNEL]" />
+            <path
+              refId="Package\Data Flow TV Shows.Paths[CHANNELS]"
+              endId="Package\Data Flow TV Shows\SHOWCHANNELS.Inputs[OLE DB Destination Input]"
+              name="CHANNELS"
+              startId="Package\Data Flow TV Shows\XML Source.Outputs[CHANNELS]" />
+            <path
+              refId="Package\Data Flow TV Shows.Paths[SHOW]"
+              endId="Package\Data Flow TV Shows\SHOWS.Inputs[OLE DB Destination Input]"
+              name="SHOW"
+              startId="Package\Data Flow TV Shows\XML Source.Outputs[SHOW]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{1D4CF0C2-1DA1-429F-9859-B2AA6479952E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{45F4860E-EBEF-4DC6-818A-DC575A2A4D84}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE GENCHAN&#xA;TRUNCATE TABLE GENNUM&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML CITY"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{6F887650-7FA3-4BFC-9494-6745BA79E5DB}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML CITY"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XPATH"
+          Source="XMLCityState.xml"
+          SecondOperand="//CITY"
+          SaveOperationResult="True"
+          DestinationType="Variable"
+          Destination="User::City"
+          OverwriteDestination="True"
+          XPathOperation="Values" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\XML STATE"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{CEC1C8F0-03A9-4F33-92F4-C6C44F751946}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="XML STATE"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="XPATH"
+          Source="XMLCityState.xml"
+          SecondOperand="//STATE"
+          SaveOperationResult="True"
+          DestinationType="Variable"
+          Destination="User::State"
+          OverwriteDestination="True"
+          XPathOperation="Values" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A853CBE-D3F2-4818-A43F-CB1C30456308}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow TV SHOWS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task"
+          TopLeft="777,52" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\XML CITY"
+          TopLeft="820,192" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\XML STATE"
+          TopLeft="797,123" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow TV SHOWS"
+          TopLeft="756,340" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Truncate tables"
+          TopLeft="767,259" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="846,301">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Data Flow TV Shows"
+          TopLeft="356,40" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="400,30" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Data Flow Task\SQL Server Destination"
+          TopLeft="242,275" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="420,169" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="544,278" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 2]"
+          TopLeft="500,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="130.5,67"
+              Start="0,0"
+              End="130.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3203883495146" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3203883495146"
+                    Point2="0,27.3203883495146"
+                    Point3="4,27.3203883495146" />
+                  <mssgle:LineSegment
+                    End="126.5,27.3203883495146" />
+                  <mssgle:CubicBezierSegment
+                    Point1="126.5,27.3203883495146"
+                    Point2="130.5,27.3203883495146"
+                    Point3="130.5,31.3203883495146" />
+                  <mssgle:LineSegment
+                    End="130.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 1]"
+          TopLeft="481,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144,64"
+              Start="0,0"
+              End="-144,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="-4,32" />
+                  <mssgle:LineSegment
+                    End="-140,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140,32"
+                    Point2="-144,32"
+                    Point3="-144,36" />
+                  <mssgle:LineSegment
+                    End="-144,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="403,100" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
+          TopLeft="479.25,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="481.5,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SQL Server Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow TV SHOWS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Data Flow TV SHOWS\genchan"
+          TopLeft="254,58" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Data Flow TV SHOWS\GENCHAN"
+          TopLeft="251,168" />
+        <EdgeLayout
+          Id="Package\Data Flow TV SHOWS.Paths[Flat File Source Output]"
+          TopLeft="314.75,100">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Data Flow TV SHOWS\gennum"
+          TopLeft="480,57" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Data Flow TV SHOWS\GENNUM"
+          TopLeft="478,169" />
+        <EdgeLayout
+          Id="Package\Data Flow TV SHOWS.Paths[Flat File Source Output1]"
+          TopLeft="539.75,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow TV SHOWS\GENCHAN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow TV SHOWS\GENNUM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow TV Shows">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Data Flow TV Shows\XML Source"
+          TopLeft="419,48" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Data Flow TV Shows\SHOWS"
+          TopLeft="240,164" />
+        <EdgeLayout
+          Id="Package\Data Flow TV Shows.Paths[SHOW]"
+          TopLeft="487,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-188.5,74"
+              Start="0,0"
+              End="-188.5,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33"
+                    Point2="0,37"
+                    Point3="-4,37" />
+                  <mssgle:LineSegment
+                    End="-184.5,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-184.5,37"
+                    Point2="-188.5,37"
+                    Point3="-188.5,41" />
+                  <mssgle:LineSegment
+                    End="-188.5,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-109.2078125,42,29.915625,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Data Flow TV Shows\SHOWCHANNELS"
+          TopLeft="433,168" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Data Flow TV Shows\CHANNELS"
+          TopLeft="656,166" />
+        <EdgeLayout
+          Id="Package\Data Flow TV Shows.Paths[CHANNELS]"
+          TopLeft="511.416666666667,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.845,30.48291015625,49.69,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow TV Shows.Paths[CHANNEL]"
+          TopLeft="519,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="203,76"
+              Start="0,0"
+              End="203,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.3076923076923"
+                    Point2="0,26.3076923076923"
+                    Point3="4,26.3076923076923" />
+                  <mssgle:LineSegment
+                    End="199,26.3076923076923" />
+                  <mssgle:CubicBezierSegment
+                    Point1="199,26.3076923076923"
+                    Point2="203,26.3076923076923"
+                    Point3="203,30.3076923076923" />
+                  <mssgle:LineSegment
+                    End="203,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="79.330546875,31.3076923076923,44.33890625,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow TV Shows\SHOWS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow TV Shows\SHOWCHANNELS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow TV Shows\CHANNELS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
